@@ -10,7 +10,8 @@
                         <p>published: {{ post.published_date }}</p>
                     </div>
 					<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                    <p>{{ post.text }}</p>
+                    <p>{{ post.text|safe|truncatewords:40 }}</p>
+                    <a href="{% url 'post_detail' pk=post.pk %}">Read more</a>
                 </div>
             {% endfor %}
         </div>
